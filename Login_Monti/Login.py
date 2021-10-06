@@ -3,8 +3,8 @@ passbase = "s123"
 
 #------------------------------------------------------Login-----------------------------------------------------------
 def pedircuenta():
-    user = input("Introducir usuario:")
-    pas = input("Introducir contraseña:")
+    user = input("Introducir usuario: ")
+    pas = input("Introducir contraseña: ")
     return user,pas
 
 def validarusuario(usuario, contraseña, usuariobase, passbase):
@@ -21,8 +21,6 @@ def validarusuario(usuario, contraseña, usuariobase, passbase):
             print("El usuario y contraseña no son validos")
             cont = cont + 1
             usuario,contraseña = pedircuenta()
-
-
 
 user1,pas1 = pedircuenta()
 validarusuario(user1,pas1, userbase, passbase)
