@@ -1,1 +1,0 @@
-edad = int(input('num: '))
