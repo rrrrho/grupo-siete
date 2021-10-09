@@ -1,4 +1,4 @@
-# app
+# app principal
 import pantallas.reg_paciente as registro_p
 import pantallas.menu as menu
 import os
