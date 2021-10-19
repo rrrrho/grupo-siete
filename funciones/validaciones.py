@@ -14,3 +14,8 @@ def validacion_dni(dni):
         print('ERROR. El DNI debe poseer únicamente ocho dígitos.')
         return False
     return True
+
+def yes_no(dato):
+    if dato.lower() != 'yes' and dato.lower() != 'no':
+        return False
+    return True
