@@ -1,5 +1,6 @@
 # app principal
 import pantallas.reg_paciente as registro_p
+import pantallas.reg_turno as registro_t
 import pantallas.menu as menu
 import pantallas.login as log
 import pantallas.mod_paciente as mod_p
@@ -16,6 +17,7 @@ clear()
 ingreso = log.main()
 sleep(2)
 
+matrizt= [["DNI","Mes","Dia","Hora"]]
 # MENU DE OPCIONES
 if ingreso:
     clear()
