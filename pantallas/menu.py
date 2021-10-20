@@ -1,5 +1,6 @@
 from time import sleep
 import os; clear = lambda: os.system('cls')
+from extra.ascii_decoracion import titulo
 
 def menu_grafico():
     menu = '''
@@ -13,15 +14,6 @@ def menu_grafico():
                                             8. Listar turnos
                                             9. Buscar turno
                                             0. Salir
-    '''
-    titulo = f'''
-
-                              ░█████╗░██╗░░░░░██╗███╗░░██╗██╗░█████╗░░█████╗░
-                              ██╔══██╗██║░░░░░██║████╗░██║██║██╔══██╗██╔══██╗
-                              ██║░░╚═╝██║░░░░░██║██╔██╗██║██║██║░░╚═╝███████║
-                              ██║░░██╗██║░░░░░██║██║╚████║██║██║░░██╗██╔══██║
-                              ╚█████╔╝███████╗██║██║░╚███║██║╚█████╔╝██║░░██║
-                              ░╚════╝░╚══════╝╚═╝╚═╝░░╚══╝╚═╝░╚════╝░╚═╝░░╚═╝
     '''
     print(titulo + '\n' + menu)
 

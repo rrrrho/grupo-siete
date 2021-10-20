@@ -3,10 +3,13 @@ import pantallas.reg_paciente as registro_p
 import pantallas.menu as menu
 import pantallas.login as log
 import pantallas.mod_paciente as mod_p
+from extra.ascii_decoracion import logo
 from time import sleep
 import os
 clear = lambda: os.system('cls')
 
+print(logo)
+sleep(3)
 # LOGIN
 clear()
 ingreso = log.main()
