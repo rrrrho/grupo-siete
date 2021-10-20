@@ -22,8 +22,11 @@ if ingreso:
     opcion = menu.consulta_opcion()
     while opcion != 0:
         clear()
+        # REGISTRO DE TURNOS
+        if opcion == 1:
+            registro_t.main(matrizt)
         # REGISTRO DE PACIENTES
-        if opcion == 4:
+        elif opcion == 4:
             registro_p.main()
         # MODIFICACIÓN DE PACIENTES
         elif opcion == 5:
