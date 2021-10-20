@@ -1,3 +1,5 @@
+from extra.ascii_decoracion import titulo_login as titulo_l
+
 userbase = "s" #Usuario y contraseñas creadas solamente para verificar el correcto funcionamiento
 passbase = "s123"
 #------------------------------------------------------Login-----------------------------------------------------------
@@ -26,5 +28,6 @@ def validarusuario(usuario, contraseña, usuariobase, passbase):
     return ok
 
 def main():
+    print(titulo_l)
     user1,pas1 = pedircuenta()
     return validarusuario(user1,pas1, userbase, passbase)

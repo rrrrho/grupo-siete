@@ -3,6 +3,7 @@ import pantallas.reg_paciente as registro_p
 import pantallas.menu as menu
 import pantallas.login as log
 import pantallas.mod_paciente as mod_p
+import pantallas.listar_paciente as listar_p
 from extra.ascii_decoracion import logo
 from time import sleep
 import os
@@ -27,6 +28,8 @@ if ingreso:
         # MODIFICACIÓN DE PACIENTES
         elif opcion == 5:
             mod_p.main()
+        elif opcion == 7:
+            listar_p.main()
         else:
             pass
             # le sigue el resto de opciones

@@ -13,3 +13,13 @@ def escribir_fichero(arch, dato, tipo):
     # sobre-escribe un fichero o agrega contenido, depende el tipo especificado
     with open(arch, tipo) as fichero:
         fichero.write(dato + '\n')
+
+def arch_matriz(arch):
+    matriz =[]
+    with open(arch, 'r') as fichero:
+        linea =fichero.readline().strip()
+        while linea !='':
+            matriz.append(linea.split(';'))
+            linea =fichero.readline().strip()
+    return matriz
+
