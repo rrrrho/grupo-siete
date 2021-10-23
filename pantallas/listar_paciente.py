@@ -4,7 +4,8 @@ from funciones.validaciones import yes_no
 from extra.ascii_decoracion import titulo_listar_p
 import os; clear = lambda: os.system('cls')
 
-def main():
+def listar_p():
+    # lista pacientes de pacientes.txt de la carpeta datos
     print(titulo_listar_p)
     msj = '''
 ¿Cómo desea listar los pacientes?
@@ -47,6 +48,6 @@ Escriba su opción: '''
         seguir = input('¿Desea volver a filtrar? (yes, no): ').lower()
     if seguir == 'yes':
         clear()
-        main()
+        listar_p()
 
 

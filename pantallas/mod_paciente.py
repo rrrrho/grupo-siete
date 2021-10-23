@@ -1,10 +1,10 @@
-import os; clear = lambda: os.system('cls'); clear(); import random;
+import os; clear = lambda: os.system('cls'); clear()
 from funciones.validaciones import validacion_dni, validacion_menores, validacion_nombre, yes_no
+from funciones.arch_manipulacion import matriz_arch, arch_matriz, existe_fichero
 
-#Funcion modificar
-def main():
-  lista_pacientes = [["46623410", "Martin", "45"], ["25820887", "Jose", "64"]]
-  # PEDIDO DE DATOS Y VALIDACIÓN/MANEJO DE ERRORES DE LOS MISMOS
+def mod_pacientes():
+  # modifica el archivo pacientes.txt de la carpeta datos
+  lista_pacientes = arch_matriz('datos/pacientes.txt')
   msj = "Ingrese el número de DNI de la persona: "
   while True:
     try:
@@ -13,9 +13,12 @@ def main():
         break
     except ValueError:
       print('ERROR. El DNI debe ser un número entero. Sin caracteres alfabeticos ni especiales.')
-    msj = "Re-ingrese el numero de DNI de la persona: "
-  for i in range(len(lista_pacientes)):
+    msj = "Re-ingrese el número de DNI de la persona: "
+  i = 0
+  encontrado = 0
+  while encontrado != True and i < len(lista_pacientes):
     if str(dni) in lista_pacientes[i][0]:
+      encontrado = True
       while True:
         try:
           pregunta = int(input("¿Qué desea modificar? 1- Dni | 2- Nombre | 3- Edad: "))
@@ -23,18 +26,21 @@ def main():
           break
         except:
           print('ERROR. Por favor elija una opción válida.')
-      if str(pregunta) == "1":
+      if pregunta == 1:
         msj = "Ingrese el nuevo número de DNI del paciente: "
         while True:
           try:
             dato = int(input(msj))
+            assert not existe_fichero('datos/pacientes.txt', str(dato)), 'Ya existe una persona con ese DNI.'
             if validacion_dni(dato):
               break
+          except AssertionError as err:
+            print(err)
           except:
             print('ERROR. El DNI debe ser un número entero. Sin caracteres alfabeticos ni especiales.')
           msj = "Re-ingrese el nuevo número de DNI del paciente: "
         lista_pacientes[i][0] = str(dato)
-      elif str(pregunta) == "2":
+      elif pregunta == 2:
         msj = "Ingrese el nuevo nombre del paciente: "
         while True:
           dato = input(msj)
@@ -42,7 +48,7 @@ def main():
             break
           msj = "Re-ingrese el nuevo nombre del paciente: "
         lista_pacientes[i][1] = dato.capitalize()
-      elif str(pregunta) == "3":
+      elif pregunta == 3:
         msj = "Ingrese la nueva edad del paciente: "
         while True:
           try:
@@ -55,13 +61,14 @@ def main():
             print('ERROR. La edad debe ser un número entero. Sin caracteres alfabeticos ni especiales.')
           msj = "Re-ingrese la nueva edad del paciente: "
         lista_pacientes[i][2] = str(dato)
-      print(lista_pacientes)
-  else:
+    i += 1
+  if i == len(lista_pacientes):
     print('Dicho DNI no se encuentra registrado en nuestro sistema.')
-  # PREGUNTA DE NUEVO SI SE QUIERE REPETIR LA MODIFICACIÓN     
+  else:
+    matriz_arch('datos/pacientes.txt', lista_pacientes)    
   validacion = input("¿Quiere modificar un dato mas? (yes | no): ").lower()
   while not yes_no(validacion):
     print('ERROR. Por favor elija una opción válida.')
-    validacion = input("¿Quiere seguir modificando datos? (yes | no): ").lower()
+    validacion = input("¿Quiere seguir modificando datos? (yes | no): ").lower()   
   if validacion == "yes":
-    main()
+    mod_pacientes()

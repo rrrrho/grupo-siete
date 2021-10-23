@@ -4,6 +4,8 @@ import pantallas.menu as menu
 import pantallas.login as log
 import pantallas.mod_paciente as mod_p
 import pantallas.listar_paciente as listar_p
+import progreso.baja_paciente as baja_p
+from funciones.arch_manipulacion import arch_matriz
 from extra.ascii_decoracion import logo
 from time import sleep
 import os
@@ -11,27 +13,31 @@ clear = lambda: os.system('cls')
 
 print(logo)
 sleep(3)
-# LOGIN
 clear()
+# login
 ingreso = log.main()
 sleep(2)
 
-# MENU DE OPCIONES
+# menu de opciones
 if ingreso:
     clear()
     opcion = menu.consulta_opcion()
     while opcion != 0:
         clear()
-        # REGISTRO DE PACIENTES
         if opcion == 4:
-            registro_p.main()
-        # MODIFICACIÓN DE PACIENTES
+            # registro de pacientes
+            registro_p.reg_paciente()
         elif opcion == 5:
-            mod_p.main()
+            # modificación de pacientes
+            mod_p.mod_pacientes()
         elif opcion == 7:
-            listar_p.main()
-        else:
+            # listar pacientes
+            listar_p.listar_p()
+        elif opcion == 6:
+            # baja de pacientes
             pass
+        else:
             # le sigue el resto de opciones
+            pass
         clear()
         opcion = menu.consulta_opcion()

@@ -3,7 +3,8 @@ from funciones.validaciones import validacion_dni, validacion_menores, validacio
 from extra.ascii_decoracion import titulo_reg_p
 from time import sleep
 
-def main():
+def reg_paciente():
+    # registra un paciente en el sistema --> actualiza pacientes.txt de la carpeta datos
     print(titulo_reg_p)
     registrar = 'yes'
     while registrar == 'yes':
