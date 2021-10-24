@@ -6,7 +6,7 @@ import pantallas.mod_paciente as mod_p
 import pantallas.listar_paciente as listar_p
 import progreso.baja_paciente as baja_p
 from funciones.arch_manipulacion import arch_matriz
-from extra.ascii_decoracion import logo
+from extra.ascii_decoracion import logo, titulo_mod_p, titulo_reg_p, titulo_listar_p
 from time import sleep
 import os
 clear = lambda: os.system('cls')
@@ -26,12 +26,15 @@ if ingreso:
         clear()
         if opcion == 4:
             # registro de pacientes
+            print(titulo_reg_p)
             registro_p.reg_paciente()
         elif opcion == 5:
             # modificación de pacientes
+            print(titulo_mod_p)
             mod_p.mod_pacientes()
         elif opcion == 7:
             # listar pacientes
+            print(titulo_listar_p)
             listar_p.listar_p()
         elif opcion == 6:
             # baja de pacientes

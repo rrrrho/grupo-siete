@@ -6,7 +6,6 @@ import os; clear = lambda: os.system('cls')
 
 def listar_p():
     # lista pacientes de pacientes.txt de la carpeta datos
-    print(titulo_listar_p)
     msj = '''
 ¿Cómo desea listar los pacientes?
 

@@ -5,7 +5,6 @@ from time import sleep
 
 def reg_paciente():
     # registra un paciente en el sistema --> actualiza pacientes.txt de la carpeta datos
-    print(titulo_reg_p)
     registrar = 'yes'
     while registrar == 'yes':
         nombre = input('Ingrese el nombre del paciente: ')
