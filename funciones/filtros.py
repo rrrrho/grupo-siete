@@ -1,6 +1,6 @@
-def mayores_a(matriz, edad):
+def mayores_a(lista_dicc, edad):
     filtrado = []
-    for fila in matriz:
-        if fila[2] > edad:
-            filtrado.append(fila)
+    for dicc in lista_dicc:
+        if int(dicc['edad']) > edad:
+            filtrado.append(dicc)
     return filtrado

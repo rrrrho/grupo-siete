@@ -1,14 +1,3 @@
-def existe_fichero(arch, dato):
-    # busca por cada línea un dato, si existe retorna True, sino False
-    encontrado = False
-    with open(arch, 'r') as fichero:
-        linea = fichero.readline()
-        while linea != '' and encontrado != True:
-            if dato in linea:
-                encontrado = True
-            linea = fichero.readline()
-    return encontrado
-
 def escribir_fichero(arch, dato, tipo):
     # sobre-escribe un fichero o agrega contenido, depende el tipo especificado
     with open(arch, tipo) as fichero:
@@ -77,6 +66,18 @@ def arch_dnis(arch):
             matriz.append(linea.split(';')[0::3])
             linea = fichero.readline().strip()
     return matriz
+
+def arch_dicc(arch):
+    # crea una lista finita de diccionarios a partir de un txt
+    i = 0
+    lista = []
+    with open(arch, 'r') as fichero:
+        linea = fichero.readline()
+        while linea != '' and i < 51:
+            lista.append(reg_diccionario(linea))
+            linea = fichero.readline()
+            i += 1
+    return lista
 
 
 

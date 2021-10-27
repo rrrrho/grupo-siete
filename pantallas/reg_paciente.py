@@ -1,10 +1,10 @@
-from funciones.arch_manipulacion import escribir_fichero, existe_fichero
+from funciones.arch_manipulacion import escribir_fichero, arch_dnis
 from funciones.validaciones import validacion_dni, validacion_menores, validacion_nombre
-from extra.ascii_decoracion import titulo_reg_p
 from time import sleep
 
 def reg_paciente():
     # registra un paciente en el sistema --> actualiza pacientes.txt de la carpeta datos
+    pacientes = arch_dnis('datos/pacientes.txt')
     registrar = 'yes'
     while registrar == 'yes':
         nombre = input('Ingrese el nombre del paciente: ')
@@ -32,8 +32,14 @@ def reg_paciente():
                 except ValueError:
                     print('ERROR. El DNI debe ser un número entero. Sin caracteres alfabeticos ni especiales.')
                     msj = 'Re-ingrese el DNI del paciente: '
+            encontrado = False
+            i= 0
+            while encontrado != True and i < len(pacientes):
+                if str(dni) == pacientes[i][0]:
+                    encontrado = True
+                i += 1
             try:
-                if not existe_fichero('datos/pacientes.txt', str(dni)):
+                if not encontrado:
                     escribir_fichero('datos/pacientes.txt', f'{dni};{nombre.capitalize()};{edad}', 'a')
                     print()
                     print('El paciente ha sido registrado con éxito.')
