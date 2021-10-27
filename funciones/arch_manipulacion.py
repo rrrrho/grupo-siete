@@ -69,6 +69,15 @@ def dicc_reg(obj):
     valores = obj.values()
     return ';'.join(valores) + '\n'
 
+def arch_dnis(arch):
+    matriz = []
+    with open(arch, 'r') as fichero:
+        linea =fichero.readline().strip()
+        while linea !='':
+            matriz.append(linea.split(';')[0::3])
+            linea = fichero.readline().strip()
+    return matriz
+
 
 
 
