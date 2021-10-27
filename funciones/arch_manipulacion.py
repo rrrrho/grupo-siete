@@ -18,10 +18,12 @@ def arch_matriz(arch):
     # transforma un archivo txt en matriz --> cada registro es una fila, y separa elementos por el delimitador ';'
     matriz =[]
     with open(arch, 'r') as fichero:
+        i = 0
         linea =fichero.readline().strip()
-        while linea !='':
+        while linea !='' and i < 4:
             matriz.append(linea.split(';'))
             linea =fichero.readline().strip()
+            i += 1
     return matriz
 
 def matriz_arch(arch, matriz):
@@ -31,3 +33,42 @@ def matriz_arch(arch, matriz):
     with open(arch, 'a') as fichero:
         for reg in matriz:
             fichero.write(';'.join(reg)+'\n')
+
+def mod_arch(arch, id, string):
+    # escribe un archivo nuevo con el contenido original y la modificación realizada
+    with open(arch, 'r') as fichero:
+        with open('datos/mod.txt', 'a') as fichero_mod:
+            for linea in fichero:
+                if id in linea:
+                    fichero_mod.write(string)
+                else:
+                    fichero_mod.write(linea)
+
+def traer_reg(arch, id):
+    # trae un registro de un archivo. supone que si existe el registro especificado
+    encontrado = False
+    with open(arch, 'r') as fichero:
+        while encontrado != True:
+            linea = fichero.readline()
+            if id in linea:
+                encontrado = True
+    return linea
+
+def reg_diccionario(string):
+    # transforma un string de un registro de pacientes a diccionario
+    lista = string.rstrip().split(';')
+    obj = {
+        'dni': lista[0],
+        'nombre': lista[1],
+        'edad': lista[2]
+    }
+    return obj
+
+def dicc_reg(obj):
+    # transforma un obj a un string que pueda ser escrito en un archivo
+    valores = obj.values()
+    return ';'.join(valores) + '\n'
+
+
+
+
