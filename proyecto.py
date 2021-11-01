@@ -1,12 +1,11 @@
 # app principal
-from pantallas.baja_paciente import baja_paciente
 import pantallas.reg_paciente as registro_p
 import pantallas.menu as menu
 import pantallas.login as log
 import pantallas.mod_paciente as mod_p
 import pantallas.listar_paciente as listar_p
 import pantallas.baja_paciente as baja_p
-from extra.ascii_decoracion import logo, titulo_mod_p, titulo_reg_p, titulo_listar_p
+from extra.ascii_decoracion import logo, titulo_mod_p, titulo_reg_p, titulo_listar_p, titulo_baja_p
 from time import sleep
 import os
 clear = lambda: os.system('cls')
@@ -37,6 +36,8 @@ if ingreso:
             print(titulo_listar_p)
             listar_p.listar_p()
         elif opcion == 6:
+            # baja de pacientes
+            print(titulo_baja_p)
             baja_p.baja_paciente()
         else:
             # le sigue el resto de opciones

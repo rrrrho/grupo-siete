@@ -1,5 +1,5 @@
 import os; clear = lambda: os.system('cls'); clear()
-from funciones.validaciones import validacion_dni
+from funciones.validaciones import validacion_dni, yes_no
 from funciones.arch_manipulacion import mod_arch, arch_dnis
 
 # La función de Ulises que la modifique para que funcione, hasta ahora intenté asegurarme de que no ocurra ningun error#Funcion
@@ -26,13 +26,9 @@ def baja_paciente():
     else:
         print('El DNI no se encuentra registrado en nuestro sistema.')
 
-    while True:
-        try:
-            seguir = input('¿Desea eliminar otro paciente? (yes, no): ').lower()
-            assert seguir == 'yes' or seguir == 'no'
-            break
-        except:
-            print('Por favor escriba yes o no.')
+    seguir = input('¿Desea eliminar otro paciente? (yes, no): ').lower()
+    while not yes_no(seguir):
+        print('Por favor escriba yes o no.')
+        seguir = input('¿Desea eliminar otro paciente? (yes, no): ').lower()
     if seguir == 'yes':
         baja_paciente()
-

@@ -31,7 +31,7 @@ def mod_pacientes():
       while True:
         try: 
           dato = int(input(msj))
-          assert str(dato) in dnis, 'Ya existe una persona con ese DNI.'
+          assert str(dato) not in dnis, 'Ya existe una persona con ese DNI.'
           if validacion_dni(dato):
             break
         except AssertionError as err:
