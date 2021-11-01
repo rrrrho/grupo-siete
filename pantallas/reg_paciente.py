@@ -32,14 +32,8 @@ def reg_paciente():
                 except ValueError:
                     print('ERROR. El DNI debe ser un número entero. Sin caracteres alfabeticos ni especiales.')
                     msj = 'Re-ingrese el DNI del paciente: '
-            encontrado = False
-            i= 0
-            while encontrado != True and i < len(pacientes):
-                if str(dni) == pacientes[i][0]:
-                    encontrado = True
-                i += 1
             try:
-                if not encontrado:
+                if str(dni) not in pacientes:
                     escribir_fichero('datos/pacientes.txt', f'{dni};{nombre.capitalize()};{edad}', 'a')
                     print()
                     print('El paciente ha sido registrado con éxito.')

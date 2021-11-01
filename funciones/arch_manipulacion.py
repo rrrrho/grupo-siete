@@ -59,13 +59,13 @@ def dicc_reg(obj):
     return ';'.join(valores) + '\n'
 
 def arch_dnis(arch):
-    matriz = []
+    lista = []
     with open(arch, 'r') as fichero:
         linea =fichero.readline().strip()
         while linea !='':
-            matriz.append(linea.split(';')[0::3])
+            lista.append(linea[:8])
             linea = fichero.readline().strip()
-    return matriz
+    return lista
 
 def arch_dicc(arch):
     # crea una lista finita de diccionarios a partir de un txt

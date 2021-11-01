@@ -1,7 +1,7 @@
 from funciones.validacionesTurnos import valPaciente, valDNI, valMes, valDia, valHora#, valTurno
 from funciones.arch_manipulacion import escribir_fichero
 
-def main():
+def reg_turno():
     print("Registro de turnos inicializado. A considerar: \nDias no disponibles: 1, 8, 15, 22 \nHorario permitido: De 10:00 a 14:00 \nDuracion del turno: 15 minutos")
     print("*"*40, "\n")
     while True:

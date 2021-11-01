@@ -14,14 +14,8 @@ def mod_pacientes():
         break
     except ValueError:
       print('ERROR. El DNI debe ser un número entero. Sin caracteres alfabeticos ni especiales.')
-    msj = "Re-ingrese el número de DNI de la persona: "
-  i = 0
-  encontrado = False
-  while encontrado != True and i < len(dnis):
-    if dnis[i][0] == str(dni): # verificar tipo de dato de dni
-      encontrado = True
-    i += 1    
-  if not encontrado:
+    msj = "Re-ingrese el número de DNI de la persona: "  
+  if str(dni) not in dnis:
     print(f'No existe el DNI {dni} en nuestro sistema.')
   else:
     paciente = reg_diccionario(traer_reg('datos/pacientes.txt', str(dni)))
@@ -35,15 +29,9 @@ def mod_pacientes():
     if pregunta == 1:
       msj = "Ingrese el nuevo número de DNI del paciente: "
       while True:
-        try:
-          encontrado = False
-          i = 0    
+        try: 
           dato = int(input(msj))
-          while encontrado != True and i < len(dnis):
-            if str(dato) == dnis[i][0]:
-              encontrado = True
-            i += 1
-          assert not encontrado, 'Ya existe una persona con ese DNI.'
+          assert str(dato) in dnis, 'Ya existe una persona con ese DNI.'
           if validacion_dni(dato):
             break
         except AssertionError as err:
