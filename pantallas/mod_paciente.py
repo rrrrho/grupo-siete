@@ -1,6 +1,6 @@
 import os; clear = lambda: os.system('cls'); clear()
 from funciones.validaciones import validacion_dni, validacion_menores, validacion_nombre, yes_no
-from funciones.arch_manipulacion import dicc_reg, mod_arch, traer_reg, reg_diccionario, arch_dnis
+from funciones.arch_manipulacion import dicc_reg, mod_arch, traer_reg, paciente_diccionario, arch_dnis
 
 
 def mod_pacientes():
@@ -18,7 +18,7 @@ def mod_pacientes():
   if str(dni) not in dnis:
     print(f'No existe el DNI {dni} en nuestro sistema.')
   else:
-    paciente = reg_diccionario(traer_reg('datos/pacientes.txt', str(dni)))
+    paciente = paciente_diccionario(traer_reg('datos/pacientes.txt', str(dni)))
     while True:
       try:
         pregunta = int(input("¿Qué desea modificar? 1- Dni | 2- Nombre | 3- Edad: "))

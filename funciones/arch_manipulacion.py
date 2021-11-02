@@ -43,7 +43,7 @@ def traer_reg(arch, id):
                 encontrado = True
     return linea
 
-def reg_diccionario(string):
+def paciente_diccionario(string):
     # transforma un string de un registro de pacientes a diccionario
     lista = string.rstrip().split(';')
     obj = {
@@ -84,9 +84,10 @@ def arch_dicc(arch):
     with open(arch, 'r') as fichero:
         linea = fichero.readline()
         while linea != '' and i < 51:
-            lista.append(reg_diccionario(linea))
+            lista.append(paciente_diccionario(linea))
             linea = fichero.readline()
             i += 1
     return lista
+
 
 

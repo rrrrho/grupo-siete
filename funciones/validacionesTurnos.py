@@ -2,8 +2,8 @@ from funciones.arch_manipulacion import arch_dnis
 from datetime import datetime
 from funciones.valTurnoAux import OperacionHorario, convertirHora, filtrarLineas
 
-def valTurno(mes,dia,hora):
-    listaHorarios = filtrarLineas('datos/turnos.txt',mes,dia)
+def valTurno(mes,dia,hora, arch='datos/turnos.txt'):
+    listaHorarios = filtrarLineas(arch,mes,dia)
     listaHorarios.append(hora)
     listaHorarios.sort()          #Horarios ordenados de turnos correspondientes al mes y dia especificados
     horaConv = convertirHora(hora)
