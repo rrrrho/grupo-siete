@@ -1,15 +1,41 @@
 from funciones.arch_manipulacion import arch_dnis
 from datetime import datetime
+from valTurnoAux import OperacionHorario, convertirHora, filtrarLineas
+
+def valTurno(mes,dia,hora):
+    listaHorarios = filtrarLineas('datos/turnos.txt',mes,dia)
+    listaHorarios.append(hora)
+    listaHorarios.sort()          #Horarios ordenados de turnos correspondientes al mes y dia especificados
+    horaConv = convertirHora(hora)
+    
+    if len(listaHorarios) == 1:                                 #El horario a verificar es el unico del día. Es válido
+        return True
+    elif listaHorarios.count(hora)>1:                           #El horario a verificar ya existe. Es inválido
+        print("El horario ya existe!")
+        return False
+    indice = listaHorarios.index(hora)
+    if listaHorarios[-1] != hora:                               #El horario a verificar no es el último. Hay uno más tarde que no debe interrumpirlo
+        horariocomparar = convertirHora(listaHorarios[indice+1])
+        nuevHoraC = OperacionHorario(horariocomparar, -15)
+        if (horaConv > nuevHoraC) == True:
+            print(f'El horario interrumpe al turno de las {listaHorarios[indice+1]} horas!')
+            return False
+    if listaHorarios[0] != hora:
+        horariocomparar = convertirHora(listaHorarios[indice-1])
+        nuevHoraC = OperacionHorario(horariocomparar, 15)
+        if (horaConv < nuevHoraC) == True:
+            print(f'El horario interrumpe al turno de las {listaHorarios[indice-1]} horas!')
+            return False
+    return True
 
 def valPaciente(dni,arch):
     #Verifica que un DNI este en el archivo especificado.
     listdni = arch_dnis(arch)
-    print(listdni)
     flag = False
     encontrado = False
     cont=0
-    while flag==False and cont!=len(listdni):
-        if dni == listdni[cont][0]:
+    while encontrado==False and cont!=len(listdni):
+        if dni == listdni[cont]:
             encontrado = True
             flag == True
         cont+=1
@@ -67,10 +93,7 @@ def valHora(hora):
             return False
     else:
         return False
-    
-#def valTurno(data):
 
-    
 def aniobisiesto():
     #Averigua si el año actual es bisiesto
     anio = int(datetime.today().year)
