@@ -5,7 +5,6 @@ from funciones.arch_manipulacion import mod_arch, arch_dnis
 # La función de Ulises que la modifique para que funcione, hasta ahora intenté asegurarme de que no ocurra ningun error#Funcion
 def baja_paciente():
     pacientes = arch_dnis('datos/pacientes.txt')
-    print(pacientes)
     msj = 'Ingrese número de DNI: '
     while True:
         try:

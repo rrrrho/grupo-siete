@@ -23,7 +23,7 @@ def consulta_opcion():
         menu_grafico()
         try:
             opcion = int(input('¿Qué desea hacer?: '.rjust(60)))
-            assert opcion < 9 and opcion > -1
+            assert opcion < 10 and opcion > -1
             break
         except:
             print('Por favor elija una opción válida.'.rjust(70))

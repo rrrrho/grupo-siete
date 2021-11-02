@@ -8,7 +8,8 @@ import pantallas.baja_paciente as baja_p
 import pantallas.eliminar_turno as elim_p
 import pantallas.regturno as reg_t
 import pantallas.modificar_turno as mod_t
-from extra.ascii_decoracion import logo, titulo_mod_p, titulo_reg_p, titulo_listar_p, titulo_baja_p
+import pantallas.buscar_turno as busc_t
+from extra.ascii_decoracion import logo, titulo_mod_p, titulo_reg_p, titulo_listar_p, titulo_baja_p, titulo_mod_t, titulo_reg_t, titulo_eliminar_t, titulo_buscar_t
 from time import sleep
 import os
 clear = lambda: os.system('cls')
@@ -43,13 +44,20 @@ if ingreso:
             print(titulo_baja_p)
             baja_p.baja_paciente()
         elif opcion == 3:
+            # eliminar turnos
+            print(titulo_eliminar_t)
             elim_p.eliminar_turno()
         elif opcion == 1:
+            # registrar turnos
+            print(titulo_reg_t)
             reg_t.reg_turno()
         elif opcion == 2:
+            # modificar turnos
+            print(titulo_mod_t)
             mod_t.modificar_turno()
-        else:
-            # le sigue el resto de opciones
-            pass
+        elif opcion == 9:
+            # buscar turnos
+            print(titulo_buscar_t)
+            busc_t.__main__()
         clear()
         opcion = menu.consulta_opcion()
