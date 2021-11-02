@@ -6,7 +6,7 @@ from funciones.validacionesTurnos import valTurno, valDia, valHora, valMes
 
 def modificar_turno():
     # modifica el archivo 'turnos.txt' en base a ciertas condiciones
-    pacientes = arch_dnis('datos/turnos.txt')
+    turnos = arch_dnis('datos/turnos.txt')
     msj = 'Ingrese el DNI registrado en el turno: '
     while True:
         try:
@@ -16,8 +16,8 @@ def modificar_turno():
         except:
             print('Por favor escriba un DNI válido.')
         msj = 'Re-ingrese el DNI registrado en el turno: '
-    if str(dni) in pacientes:
-        turno = turno_diccionario(traer_reg('datos/turnos.txt', str(dni)))       
+    if str(dni) in turnos:
+        turno = turno_diccionario(traer_reg('datos/turnos.txt', str(dni))) # traigo el turno y lo convierto a diccionario      
         while True:
             try:
                 opcion = int(input('¿Qué desea modificar? 1- Mes | 2- Día | 3- Horario: '))
@@ -26,10 +26,11 @@ def modificar_turno():
             except:
                 print('Por favor escriba una opción válida.')
         if opcion == 1:
+            print()
             msj = 'Ingrese el nuevo mes (Ejemplo: Febrero): '
             while True:
                 try:
-                    mes_nuevo = input(msj)
+                    mes_nuevo = input(msj).strip()
                     assert valMes(mes_nuevo)
                     break
                 except:
@@ -37,16 +38,18 @@ def modificar_turno():
                 msj = 'Re-ingrese el nuevo mes: '
             if valTurno(mes_nuevo.capitalize(), turno['dia'], turno['horario']):
                 turno['mes'] = mes_nuevo.capitalize()
-                turno = dicc_reg(turno)
+                turno = dicc_reg(turno) # convierto el diccionario a formato string
                 mod_arch('datos/turnos.txt', str(dni), turno)
                 remove('datos/turnos.txt')
                 rename('datos/mod.txt', 'datos/turnos.txt')
+                print('El mes del turno ha sido modificado con éxito.')
         elif opcion == 2:
+            print()
             msj = 'Ingrese el nuevo día: '
             while True:
                 try:
                     dia_nuevo = int(input(msj))
-                    assert dia_nuevo not in [1,8,15,22], "Se ingresó un día en el que el médico no trabaja"
+                    assert dia_nuevo not in [1,8,15,22], "Se ingresó un día en el que el médico no trabaja."
                     if not valDia(dia_nuevo, turno['mes']):
                         raise Exception
                     break
@@ -61,7 +64,9 @@ def modificar_turno():
                 mod_arch('datos/turnos.txt', str(dni), turno)
                 remove('datos/turnos.txt')
                 rename('datos/mod.txt', 'datos/turnos.txt')
+                print('El día del turno ha sido modificado con éxito.')
         elif opcion == 3:
+            print()
             msj = 'Ingrese el nuevo horario: '
             while True:
                 try:
@@ -83,6 +88,7 @@ def modificar_turno():
                 mod_arch('datos/turnos.txt', str(dni), turno)
                 remove('datos/turnos.txt')
                 rename('datos/mod.txt', 'datos/turnos.txt')
+                print('El horario del turno ha sido modificado con éxito.')
 
             if isfile('datos/mod.txt'): 
                 # en caso de que no haya entrado en el anterior if me aseguro de todas maneras de borrar 'mod.txt'
@@ -90,11 +96,13 @@ def modificar_turno():
     else:
         print('No hay ningún turno registrado bajo ese DNI.')
 
+    print()
     validacion = input("¿Quiere seguir modificando turnos? (yes | no): ").lower()
     while not yes_no(validacion):
         print('ERROR. Por favor elija una opción válida.')
         validacion = input("¿Quiere seguir modificando turnos? (yes | no): ").lower()   
     if validacion == "yes":
+        print()
         modificar_turno()
 
 

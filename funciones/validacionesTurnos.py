@@ -71,7 +71,6 @@ def valDia(dia,mes):
             diamax = 31
         else:
             diamax = 30
-            print(dia,diamax)
         if 1<=dia<=diamax:
             return True
         else:

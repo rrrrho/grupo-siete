@@ -19,7 +19,7 @@ def reg_turno():
             diaTurno = input("Ingresar Día del turno: ").title()
             while valDia(diaTurno, mesTurno.title())==False:
                 diaTurno= input("Ingresar un número de día válido para el mes ingresado: ")
-            assert diaTurno not in [1,8,15,22], "Se ingresó un día en el que el médico no trabaja"
+            assert int(diaTurno) not in [1,8,15,22], "Se ingresó un día en el que el médico no trabaja"
             
             horaTurno= input("Ingresar Hora del turno (horas:minutos): ")
             while valHora(horaTurno)==False:
@@ -41,9 +41,11 @@ def reg_turno():
         except AssertionError as error:
             print("Error al registrar el turno:",error)
         finally:
+            print()
             decision = input("Registrar otro turno? (s/n): ")
             while decision not in ("s","n"):
                 decision = input("Ingresar una opción válida. Opciones -> s - Si; n - No :")
             if decision == "n":
                 print("Finalizando el registro..")
                 break
+            print()

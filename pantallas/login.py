@@ -27,7 +27,7 @@ def validarusuario(usuario, contraseña, usuariobase, passbase):
             usuario,contraseña = pedircuenta()
     return ok
 
-def main():
+def login():
     print(titulo_l)
     user1,pas1 = pedircuenta()
     return validarusuario(user1,pas1, userbase, passbase)

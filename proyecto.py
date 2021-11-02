@@ -1,4 +1,4 @@
-# app principal
+# app principal --> integración de módulos
 import pantallas.reg_paciente as registro_p
 import pantallas.menu as menu
 import pantallas.login as log
@@ -17,8 +17,7 @@ clear = lambda: os.system('cls')
 print(logo)
 sleep(3)
 clear()
-# login
-ingreso = log.main()
+ingreso = log.login() # login
 sleep(2)
 
 # menu de opciones
