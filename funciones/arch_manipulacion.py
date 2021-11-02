@@ -53,6 +53,16 @@ def reg_diccionario(string):
     }
     return obj
 
+def turno_diccionario(string):
+    lista = string.rstrip().split(';')
+    obj = {
+        'dni': lista[0],
+        'mes': lista[1],
+        'dia': lista[2],
+        'horario': lista[3]
+    }
+    return obj
+
 def dicc_reg(obj):
     # transforma un obj a un string que pueda ser escrito en un archivo
     valores = obj.values()
@@ -78,7 +88,5 @@ def arch_dicc(arch):
             linea = fichero.readline()
             i += 1
     return lista
-
-
 
 

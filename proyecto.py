@@ -6,6 +6,7 @@ import pantallas.mod_paciente as mod_p
 import pantallas.listar_paciente as listar_p
 import pantallas.baja_paciente as baja_p
 import pantallas.eliminar_turno as elim_p
+import pantallas.regturno as reg_t
 from extra.ascii_decoracion import logo, titulo_mod_p, titulo_reg_p, titulo_listar_p, titulo_baja_p
 from time import sleep
 import os
@@ -42,6 +43,8 @@ if ingreso:
             baja_p.baja_paciente()
         elif opcion == 3:
             elim_p.eliminar_turno()
+        elif opcion == 1:
+            reg_t.reg_turno()
         else:
             # le sigue el resto de opciones
             pass

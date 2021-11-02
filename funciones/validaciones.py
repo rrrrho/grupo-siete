@@ -19,3 +19,10 @@ def yes_no(dato):
     if dato.lower() != 'yes' and dato.lower() != 'no':
         return False
     return True
+
+def es_mes(string):
+    # recibe un string y determina si es un mes
+    meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+    if string.capitalize() in meses:
+        return True
+    return False
