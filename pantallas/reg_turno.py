@@ -6,9 +6,10 @@ def reg_turno():
     print("*"*40, "\n")
     while True:
         try:
+            
             dniTurno = input("Ingresar DNI del paciente: ")
             while valDNI(dniTurno)==False:
-                dniTurno = input("Ingresar un DNI válido [8 dígitos]: ")
+                dniTurno = input("Ingresar un DNI válido [7 u 8 dígitos, solo carácteres numéricos]: ")
             assert (valPaciente(dniTurno,'datos/pacientes.txt')==True), "Se ingresó un DNI que no pertenece a ningún paciente en la base de datos. Verificar que el paciente este registrado"
             assert (valPaciente(dniTurno,'datos/turnos.txt')==False), "Se ingresó un DNI que ya tiene un turno asignado"
                 
@@ -30,7 +31,7 @@ def reg_turno():
             if valTurno(mesTurno.title(),diaTurno,horaTurno)==True:
                 try:
                     print(f'Registrando el siguiente turno: {diaTurno} de {mesTurno.title()} a las {horaTurno} para el paciente de DNI {dniTurno}')
-                    escribir_fichero('datos/turnos.txt', f'{dniTurno};{mesTurno.title()};{diaTurno};{horaTurno}', 'a')
+                    escribir_fichero('datos/turnos.txt', f'{str(dniTurno)};{mesTurno.title()};{diaTurno};{horaTurno}', 'a')
                 except FileNotFoundError:
                     print('No se encontró el archivo de turnos en el directorio específicado')
                 else:
