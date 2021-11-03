@@ -16,15 +16,22 @@ def convertirHora(hora):
     return Horario1
 
 #Abre un archivo, y si se encuentra cierta cadena en un registro, lo extrae
-def filtrarLineas(arch,criterio1,criterio2):
+def filtrarLineas(arch,criterio1):
     listaelem= []
     with open(arch,'r') as file:
         linea = file.readline().strip()
         while linea !='':
             if criterio1 in linea:
                 listafiltrada = linea.split(';')
-                if criterio2 in listafiltrada:
-                    listaelem.append(listafiltrada[-1])
+                listaelem.append(listafiltrada)
             linea = file.readline().strip()
     return listaelem
+
+#Recibe una matriz, y si se encuentra cierto criterio en una lista, extrae un indice especifico
+def filtrarMatriz(matriz, criterio, indice):
+    lista= []
+    for elem in matriz:
+        if criterio in elem:
+            lista.append(elem[indice])
+    return lista
     
