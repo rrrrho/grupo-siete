@@ -31,7 +31,7 @@ def reg_turno():
             if valTurno(mesTurno.title(),diaTurno,horaTurno)==True:
                 try:
                     print(f'Registrando el siguiente turno: {diaTurno} de {mesTurno.title()} a las {horaTurno} para el paciente de DNI {dniTurno}')
-                    escribir_fichero('datos/turnos.txt', f'{str(dniTurno)};{mesTurno.title()};{diaTurno};{horaTurno}', 'a')
+                    escribir_fichero('datos/turnos.txt', f'{dniTurno};{mesTurno.title()};{diaTurno};{horaTurno}', 'a')
                 except FileNotFoundError:
                     print('No se encontró el archivo de turnos en el directorio específicado')
                 else:
