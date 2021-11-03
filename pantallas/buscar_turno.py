@@ -11,7 +11,7 @@ def ingreso_y_validacion_dni():
         else:
             verificacion = dni.isnumeric()
             assert (verificacion == True), 'Error, el DNI no debe contener letras y/o caracteres especiales...'
-            assert (len(dni) == 8), 'Error, el DNI debe contener solamente 8 (ocho) numeros...'
+            assert (len(dni) == 8 or len(dni) == 7), 'Error, el DNI debe contener solamente 8 (ocho) numeros...'
     except AssertionError as error:
         print(error)
         return False

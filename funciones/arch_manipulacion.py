@@ -84,7 +84,8 @@ def arch_dnis(arch):
     with open(arch, 'r') as fichero:
         linea =fichero.readline().strip()
         while linea !='':
-            lista.append(linea[:8])
+            separador = linea.split(';')
+            lista.append(separador[0])
             linea = fichero.readline().strip()
     return lista
 

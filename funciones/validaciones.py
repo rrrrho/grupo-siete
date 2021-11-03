@@ -13,8 +13,8 @@ def validacion_menores(edad):
 
 def validacion_dni(dni):
     # recibe un número de tipo INT sin puntos
-    if len(str(dni)) != 8:
-        print('ERROR. El DNI debe poseer únicamente ocho dígitos.')
+    if len(str(dni)) != 8 and len(str(dni)) != 7:
+        print('ERROR. El DNI debe poseer únicamente ocho o siete dígitos.')
         return False
     return True
 

@@ -23,7 +23,6 @@
 43566787;Eduardo Calabrese;47
 44012344;David Orlando;18
 77899000;Romina Villa;178
-42900900;Juan Pellegrino;22
 37777708;Leandro Costa;30
 38989222;Flor Abraham;34
 42056222;Martina Scalisi;23
@@ -34,3 +33,5 @@
 34012983;Viviana Sabater;66
 41921563;Felipe Colombo;26
 42133445;Sol Perli;29
+9217334;Giselle Caños;81
+1056778;Narciso Monterey;59
