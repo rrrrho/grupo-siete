@@ -1,6 +1,7 @@
 from os import rename, remove
 from funciones.validaciones import validacion_dni, yes_no
 from funciones.arch_manipulacion import mod_arch, arch_dnis
+from pantallas.eliminar_turno import eliminar_turno
 
 def baja_paciente():
     # elimina un registro en particulas del archivo 'pacientes.txt'
@@ -20,12 +21,8 @@ def baja_paciente():
         mod_arch('datos/pacientes.txt', str(dni), '')
         remove('datos/pacientes.txt')
         rename('datos/mod.txt', 'datos/pacientes.txt')
-        if str(dni) in turnos:
-            mod_arch('datos/turnos.txt', str(dni), '')
-            remove('datos/turnos.txt')
-            rename('datos/mod.txt', 'datos/turnos.txt')
-        print()
-        print('Paciente eliminado con éxito.')
+        eliminar_turno(str(dni))
+        print('\nPaciente eliminado con éxito.')
 
     else:
         print('El DNI no se encuentra registrado en nuestro sistema.')

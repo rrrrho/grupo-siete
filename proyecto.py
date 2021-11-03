@@ -45,7 +45,7 @@ if ingreso:
         elif opcion == 3:
             # eliminar turnos
             print(titulo_eliminar_t)
-            elim_p.eliminar_turno()
+            elim_p.mod_eliminar_t()
         elif opcion == 1:
             # registrar turnos
             print(titulo_reg_t)
