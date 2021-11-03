@@ -45,3 +45,6 @@ def listarTurnos(arch='datos/turnos.txt'):
             informeColasTurnos(listaDNI,listaHora,mesTurno,diaTurno)
     except:
         print("Error desconocido")
+        raise
+    finally:
+        aea = input("Apretar 'Enter' para continuar al Menú Principal")
