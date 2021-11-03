@@ -36,6 +36,5 @@
 42133445;Sol Perli;29
 9217334;Giselle Caños;81
 1056778;Narciso Monterey;59
-45777777;Camila ;38
 45222556;Camila Carrara;18
 45112093;Juliana Di Bernardo;20
