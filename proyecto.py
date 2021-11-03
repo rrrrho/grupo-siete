@@ -2,7 +2,7 @@
 import pantallas.reg_paciente as registro_p
 import pantallas.menu as menu
 import pantallas.login as log
-import pantallas.mod_paciente as mod_p
+import pantallas.mod_pacientes as mod_p
 import pantallas.listar_paciente as listar_p
 import pantallas.baja_paciente as baja_p
 import pantallas.eliminar_turno as elim_p
@@ -10,7 +10,7 @@ import pantallas.reg_turno as reg_t
 import pantallas.modificar_turno as mod_t
 import pantallas.buscar_turno as busc_t
 import pantallas.listar_turnos as listar_t
-from extra.ascii_decoracion import logo, titulo_mod_p, titulo_reg_p, titulo_listar_p, titulo_baja_p, titulo_mod_t, titulo_reg_t, titulo_eliminar_t, titulo_buscar_t
+from extra.ascii_decoracion import logo, titulo_mod_p, titulo_reg_p, titulo_listar_p, titulo_baja_p, titulo_mod_t, titulo_reg_t, titulo_eliminar_t, titulo_buscar_t, titulo_listar_t
 from time import sleep
 from os import system
 clear = lambda: system('cls')
@@ -34,7 +34,7 @@ if ingreso:
         elif opcion == 5:
             # modificación de pacientes
             print(titulo_mod_p)
-            mod_p.mod_pacientes()
+            mod_p.__main__()
         elif opcion == 7:
             # listar pacientes
             print(titulo_listar_p)
@@ -61,6 +61,7 @@ if ingreso:
             busc_t.__main__()
         elif opcion == 8:
             # listar turnos
+            print(titulo_listar_t)
             listar_t.listarTurnos()
         clear()
         opcion = menu.consulta_opcion()

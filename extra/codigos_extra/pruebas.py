@@ -1,2 +1,2 @@
-nombre = 'Camila  '
+nombre = 'Camila ola'
 print(nombre.split(' '))

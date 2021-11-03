@@ -43,8 +43,8 @@ def mod_pacientes():
     elif pregunta == 2:
       msj = "Ingrese el nuevo nombre (completo) del paciente: "
       while True:
-        dato = input(msj)
-        if validacion_nombre(dato.replace(' ', '')):
+        dato = input(msj).strip()
+        if validacion_nombre(dato):
           break
         msj = "Re-ingrese el nuevo nombre del paciente: "
       paciente['nombre'] = dato.title()        

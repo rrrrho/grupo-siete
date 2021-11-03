@@ -1,7 +1,10 @@
 def validacion_nombre(nombre):
-    # recibe un nombre SIN espacios (para nombre y apellido)
-    if not nombre.isalpha():
+    # recibe un nombre --> verifica si no tiene caracteres númerico o especiales
+    if not nombre.replace(' ', '').isalpha():
         print('ERROR. El nombre debe tener solo caracteres alfabeticos.')
+        return False
+    elif '' in nombre.split(' ') or len(nombre.split(' ')) == 1:
+        print('ERROR. Asegurese de escribir nombre y apellido de manera correcta.')
         return False
     return True
 
