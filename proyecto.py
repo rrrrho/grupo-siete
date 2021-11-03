@@ -9,6 +9,7 @@ import pantallas.eliminar_turno as elim_p
 import pantallas.reg_turno as reg_t
 import pantallas.modificar_turno as mod_t
 import pantallas.buscar_turno as busc_t
+import pantallas.listar_turnos as listar_t
 from extra.ascii_decoracion import logo, titulo_mod_p, titulo_reg_p, titulo_listar_p, titulo_baja_p, titulo_mod_t, titulo_reg_t, titulo_eliminar_t, titulo_buscar_t
 from time import sleep
 from os import system
@@ -58,5 +59,8 @@ if ingreso:
             # buscar turnos
             print(titulo_buscar_t)
             busc_t.__main__()
+        elif opcion == 8:
+            # listar turnos
+            listar_t.listarTurnos()
         clear()
         opcion = menu.consulta_opcion()

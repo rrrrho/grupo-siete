@@ -1,7 +1,6 @@
-import Colas
+import funciones.Colas as Colas
 from funciones.validacionesTurnos import valMes, valDia
 from funciones.valTurnoAux import filtrarLineas, filtrarMatriz    
-import Colas
 
 def ordenarListasAColas(lista1,lista2):
     cola1ord= Colas.inicializar_cola()
@@ -46,5 +45,3 @@ def listarTurnos(arch='datos/turnos.txt'):
             informeColasTurnos(listaDNI,listaHora,mesTurno,diaTurno)
     except:
         print("Error desconocido")
-
-listarTurnos()

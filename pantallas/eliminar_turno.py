@@ -41,7 +41,7 @@ def eliminar_turno(dni):
         mod_arch('datos/turnos.txt', str(dni), '')
         os.remove('datos/turnos.txt')
         os.rename('datos/mod.txt', 'datos/turnos.txt')
-        print('\nEl turno ha sido eliminado con éxito.')
+        print('\nEl turno asociado ha sido eliminado con éxito.')
     else:
         print('\nNingún turno se encuentra registrado bajo ese DNI.')
  
