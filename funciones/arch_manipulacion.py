@@ -90,7 +90,7 @@ def arch_dnis(arch):
 
 def arch_dicc(arch):
     # recibe el nombre de un archivo
-    # crea una lista de diccionarios a partir de un txt
+    # crea una lista de diccionarios a partir de un txt (limite 50 diccionarios)
     i = 0
     lista = []
     with open(arch, 'r') as fichero:

@@ -62,7 +62,6 @@ def mostrar_turno_dni():
         except FileNotFoundError:
             print('Error, archivo de datos no encontrado...')
 
-
 def __main__():
     mostrar_turno_dni()
 

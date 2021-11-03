@@ -5,10 +5,10 @@ def reg_paciente():
     # registra un paciente en el sistema --> actualiza pacientes.txt de la carpeta datos
     pacientes = arch_dnis('datos/pacientes.txt') # trae una lista de DNIS registrados
     nombre = input('Ingrese el nombre completo del paciente: ')
+    while not validacion_nombre(nombre.replace(' ', '')):
+        nombre = input('Re-ingrese el nombre completo del paciente: ')
     while ' ' not in nombre:
         print('Por favor escriba nombre y apellido.')
-        nombre = input('Re-ingrese el nombre completo del paciente: ')
-    while not validacion_nombre(nombre.replace(' ', '')):
         nombre = input('Re-ingrese el nombre completo del paciente: ')
     msj = 'Ingrese la edad del paciente: '
     while True:

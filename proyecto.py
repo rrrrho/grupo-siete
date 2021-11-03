@@ -11,8 +11,8 @@ import pantallas.modificar_turno as mod_t
 import pantallas.buscar_turno as busc_t
 from extra.ascii_decoracion import logo, titulo_mod_p, titulo_reg_p, titulo_listar_p, titulo_baja_p, titulo_mod_t, titulo_reg_t, titulo_eliminar_t, titulo_buscar_t
 from time import sleep
-import os
-clear = lambda: os.system('cls')
+from os import system
+clear = lambda: system('cls')
 
 print(logo)
 sleep(3)
