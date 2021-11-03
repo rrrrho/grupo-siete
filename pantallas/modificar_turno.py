@@ -16,6 +16,7 @@ def modificar_turno():
         except:
             print('Por favor escriba un DNI válido.')
         msj = 'Re-ingrese el DNI registrado en el turno: '
+    print()
     if str(dni) in turnos:
         turno = turno_diccionario(traer_reg('datos/turnos.txt', str(dni))) # traigo el turno y lo convierto a diccionario      
         while True:
@@ -26,7 +27,6 @@ def modificar_turno():
             except:
                 print('Por favor escriba una opción válida.')
         if opcion == 1:
-            print()
             msj = 'Ingrese el nuevo mes (Ejemplo: Febrero): '
             while True:
                 try:
@@ -44,7 +44,6 @@ def modificar_turno():
                 rename('datos/mod.txt', 'datos/turnos.txt')
                 print('El mes del turno ha sido modificado con éxito.')
         elif opcion == 2:
-            print()
             msj = 'Ingrese el nuevo día: '
             while True:
                 try:
@@ -66,7 +65,6 @@ def modificar_turno():
                 rename('datos/mod.txt', 'datos/turnos.txt')
                 print('El día del turno ha sido modificado con éxito.')
         elif opcion == 3:
-            print()
             msj = 'Ingrese el nuevo horario: '
             while True:
                 try:

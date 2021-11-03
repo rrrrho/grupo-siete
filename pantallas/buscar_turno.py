@@ -10,8 +10,8 @@ def ingreso_y_validacion_dni():
             pass
         else:
             verificacion = dni.isnumeric()
-            assert (verificacion == True), 'Error, el DNI no debe contener letras y/o caracteres especiales...'
-            assert (len(dni) == 8 or len(dni) == 7), 'Error, el DNI debe contener solamente 8 (ocho) numeros...'
+            assert (verificacion == True), '\nError, el DNI no debe contener letras y/o caracteres especiales...\n'
+            assert (len(dni) == 8 or len(dni) == 7), '\nError, el DNI debe contener solamente 8 (ocho) numeros...\n'
     except AssertionError as error:
         print(error)
         return False
@@ -53,9 +53,9 @@ def mostrar_turno_dni():
                     dato = buscar_dni_en_archivo_v2(dni)
                     if dato != False:
                         dni,mes,dia,hora= dato
-                        print(f'La persona de DNI nro: {dni}, tiene turno el {dia} de {mes} a las {hora}')
+                        print(f'\nLa persona de DNI nro: {dni}, tiene turno el {dia} de {mes} a las {hora}\n')
                     else:
-                        print('No se encontró el numero de DNI...')
+                        print('\nNo se encontró el numero de DNI...\n')
                 dni= ingreso_y_validacion_dni()
             print('Finalizando...')
             break

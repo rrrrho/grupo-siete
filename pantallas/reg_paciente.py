@@ -17,7 +17,7 @@ def reg_paciente():
             print('Por favor escriba una edad válida.')
         msj = 'Re-ingrese la edad del paciente: '    
     if not validacion_menores(edad):
-        print('La clínica no acepta pacientes menores de edad. Anulando el alta.\n')         
+        print('La clínica no acepta pacientes menores de edad. Anulando el alta.')         
     else:
         msj = 'Ingrese el DNI del paciente: '
         while True:

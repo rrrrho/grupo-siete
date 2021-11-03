@@ -53,8 +53,8 @@ def modificacion_paciente(paciente, dnis):
     elif pregunta == 2:
         msj = "Ingrese el nuevo nombre (completo) del paciente: "
         while True:
-            dato = input(msj)
-            if validacion_nombre(dato.replace(' ', '')):
+            dato = input(msj).strip()
+            if validacion_nombre(dato):
                 break
             msj = "Re-ingrese el nuevo nombre del paciente: "
         paciente['nombre'] = dato.title()
@@ -103,7 +103,6 @@ def mod_pacientes(): #Función integradora
             print()
         else:
             break
-        print()
 
 def __main__():
     mod_pacientes()

@@ -13,7 +13,7 @@ def ordenarListasAColas(lista1,lista2, cola1, cola2):
         Colas.acolar(cola2, dato2)
     
 def informeColasTurnos(cola1,cola2,mes,dia):
-    print(f'Turnos programados para el {dia} de {mes.title()}')
+    print(f'\nTurnos programados para el {dia} de {mes.title()}')
     while Colas.cola_vacia(cola1)==False:
         hora = Colas.primero(cola2)
         dni = Colas.primero(cola1)
@@ -35,7 +35,7 @@ def listarTurnos(arch='datos/turnos.txt'):
         listaDNI = filtrarMatriz(matrizTurnos, diaTurno, 0)
         listaHora = filtrarMatriz(matrizTurnos, diaTurno, -1)
         if len(listaDNI)==0:
-            print(f'No hay turnos programados para el {diaTurno} de {mesTurno}')
+            print(f'\nNo hay turnos programados para el {diaTurno} de {mesTurno}')
         else:
             colaDNI = Colas.inicializar_cola()
             colaHora = Colas.inicializar_cola()
@@ -45,4 +45,4 @@ def listarTurnos(arch='datos/turnos.txt'):
         print("Error desconocido")
         raise
     finally:
-        aea = input("Apretar 'Enter' para continuar al Menú Principal")
+        aea = input("\nApretar 'Enter' para continuar al Menú Principal")
