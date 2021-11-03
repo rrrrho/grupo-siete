@@ -6,9 +6,10 @@ def reg_turno():
     print("*"*40, "\n")
     while True:
         try:
+            
             dniTurno = input("Ingresar DNI del paciente: ")
             while valDNI(dniTurno)==False:
-                dniTurno = input("Ingresar un DNI válido [8 dígitos]: ")
+                dniTurno = input("Ingresar un DNI válido [7 u 8 dígitos, solo carácteres numéricos]: ")
             assert (valPaciente(dniTurno,'datos/pacientes.txt')==True), "Se ingresó un DNI que no pertenece a ningún paciente en la base de datos. Verificar que el paciente este registrado"
             assert (valPaciente(dniTurno,'datos/turnos.txt')==False), "Se ingresó un DNI que ya tiene un turno asignado"
                 

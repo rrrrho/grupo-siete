@@ -29,6 +29,13 @@ def valTurno(mes,dia,hora, arch='datos/turnos.txt'):
             return False
     return True
 
+def valDNI(dni):
+    #Verifica que el DNI sea válido
+    if dni.isnumeric()==True and (len(dni)==8 or len(dni)==7):
+        return True
+    else:
+        return False
+
 def valPaciente(dni,arch):
     #Verifica que un DNI este en el archivo especificado.
     listdni = arch_dnis(arch)
@@ -42,13 +49,6 @@ def valPaciente(dni,arch):
         cont+=1
     return encontrado
 
-def valDNI(dni):
-    #Verifica que el DNI sea válido
-    if dni.isnumeric()==True and len(dni)==8:
-        return True
-    else:
-        return False
-    
 def valMes(mescadena):
     #Verifica que la string correspondiente a un Mes sea válida
     listames = ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre")
