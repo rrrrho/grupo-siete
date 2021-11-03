@@ -2,19 +2,15 @@ import funciones.Colas as Colas
 from funciones.validacionesTurnos import valMes, valDia
 from funciones.valTurnoAux import filtrarLineas, filtrarMatriz    
 
-def ordenarListasAColas(lista1,lista2):
-    cola1ord= Colas.inicializar_cola()
-    cola2ord= Colas.inicializar_cola()
+def ordenarListasAColas(lista1,lista2, cola1, cola2):
     rango = len(lista2)
     for i in range(rango):
         minelem = min(lista2)
         minindice = lista2.index(minelem)
         dato2 = lista2.pop(minindice)
         dato1 = lista1.pop(minindice)
-        Colas.acolar(cola1ord, dato1)
-        Colas.acolar(cola2ord, dato2)
-    lista1 += cola1ord
-    lista2 += cola2ord
+        Colas.acolar(cola1, dato1)
+        Colas.acolar(cola2, dato2)
     
 def informeColasTurnos(cola1,cola2,mes,dia):
     print(f'Turnos programados para el {dia} de {mes.title()}')
@@ -41,8 +37,10 @@ def listarTurnos(arch='datos/turnos.txt'):
         if len(listaDNI)==0:
             print(f'No hay turnos programados para el {diaTurno} de {mesTurno}')
         else:
-            ordenarListasAColas(listaDNI, listaHora)
-            informeColasTurnos(listaDNI,listaHora,mesTurno,diaTurno)
+            colaDNI = Colas.inicializar_cola()
+            colaHora = Colas.inicializar_cola()
+            ordenarListasAColas(listaDNI, listaHora, colaDNI, colaHora)
+            informeColasTurnos(colaDNI,colaHora,mesTurno,diaTurno)
     except:
         print("Error desconocido")
         raise
